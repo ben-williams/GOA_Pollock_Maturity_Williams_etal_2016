@@ -7,7 +7,7 @@ library(ggplot2)
 detach(package:lubridate)
 
 #read in data
-pollock <- read.csv('./chapter_1/data/pollock_mature_2015_3_17.csv')# most recent data set - data from AFSC
+pollock <- read.csv('data/pollock_mature_2015_3_17.csv')# most recent data set - data from AFSC
 
 #create factors etc.
 
@@ -23,7 +23,7 @@ pollock %>%
           longitude <= -155.4 | longitude <= -154 & latitude > 56.5 | longitude <= -153 & latitude >= 57,
           Mature !='NA') -> poll
 
-write.csv(poll, "./chapter_1/output/poll.csv")
+# write.csv(poll, "output/poll.csv")
 
 #CART model
 #Used this to examine the crossvalidataion
@@ -85,7 +85,7 @@ polly$Region<-polly$region
 
 #______________________________________________________________________
 #make adjustments to formats in the file
-allSamples <- read.csv('./chapter_1/data/allSamples.csv', header=FALSE)
+allSamples <- read.csv('data/allSamples.csv', header=FALSE)
 str(allSamples)
 names(allSamples) <- c('Region', 'count','length', 'biomass', 'file')
 #remove .csv from file name to create a year column
@@ -187,20 +187,20 @@ AIC(basew, spw, wt, baselw, splw, wtl)
 
 #Export models
 #save models to fecundity folder
-save(base, file = "./chapter_1/models/base.rda")
-save(sp, file = "./chapter_1/models/sp.rda")
-save(basel, file = "./chapter_1/models/basel.rda")
-save(spl, file = "./chapter_1/models/spl.rda")
-save(basew, file = "./chapter_1/models/basew.rda")
-save(spw, file = "./chapter_1/models/spw.rda")
-save(wt, file = "./chapter_1/models/wt.rda")
-
-save(baselw, file = "./chapter_1/models/baselw.rda")
-save(splw, file = "./chapter_1/models/splw.rda")
-save(wtl, file = "./chapter_1/models/wtl.rda")
-
-
-
-write.csv(polly, "./chapter_1/output/polly.csv")
-write.csv(pollya, "./chapter_1/output/pollya.csv")
-write.csv(pollywt, "./chapter_1/output/pollywt.csv")
+# save(base, file = "./chapter_1/models/base.rda")
+# save(sp, file = "./chapter_1/models/sp.rda")
+# save(basel, file = "./chapter_1/models/basel.rda")
+# save(spl, file = "./chapter_1/models/spl.rda")
+# save(basew, file = "./chapter_1/models/basew.rda")
+# save(spw, file = "./chapter_1/models/spw.rda")
+# save(wt, file = "./chapter_1/models/wt.rda")
+# 
+# save(baselw, file = "./chapter_1/models/baselw.rda")
+# save(splw, file = "./chapter_1/models/splw.rda")
+# save(wtl, file = "./chapter_1/models/wtl.rda")
+# 
+# 
+# 
+# write.csv(polly, "./chapter_1/output/polly.csv")
+# write.csv(pollya, "./chapter_1/output/pollya.csv")
+# write.csv(pollywt, "./chapter_1/output/pollywt.csv")
